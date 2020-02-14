@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,87 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-SK-Egf">
+                                <rect key="frame" x="44" y="764" width="402" height="49"/>
+                                <items>
+                                    <barButtonItem title="Album" id="ikg-xD-vfE">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="qUn-hB-3KK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="camera.fill" catalog="system" width="279.5" id="lq4-CQ-bi7" userLabel="Camera">
+                                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-145" maxY="0.0"/>
+                                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="Kfb-4x-9p8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-Pg-yAp">
+                                <rect key="frame" x="44" y="44" width="402" height="720"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" horizontalCompressionResistancePriority="756" axis="vertical" distribution="fillProportionally" spacing="394" translatesAutoresizingMaskIntoConstraints="NO" id="fay-Li-dA3">
+                                <rect key="frame" x="195" y="164" width="90" height="462"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="v0q-YH-YXE">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                    </textField>
+                                    <textField contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="pS3-SI-m8W">
+                                        <rect key="frame" x="0.0" y="428" width="90" height="34"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                    </textField>
+                                </subviews>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Brc-Kl-Tzg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3fP-uv-lD1"/>
+                            <constraint firstItem="fay-Li-dA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="151" id="9Yb-Ps-am9"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EIB-BS-W6B"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ib3-Dk-hvF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2lm-SK-Egf" secondAttribute="bottom" constant="5" id="Ibv-lO-WdL"/>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="top" secondItem="Ych-Pg-yAp" secondAttribute="bottom" id="VPG-aI-Tpm"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZLy-Ae-1t8"/>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="top" secondItem="fay-Li-dA3" secondAttribute="bottom" constant="138" id="c1E-fs-ZYe"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="44" id="d1d-On-4tl"/>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="top" secondItem="Ych-Pg-yAp" secondAttribute="bottom" id="g9h-AB-YYu"/>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gBZ-1a-3hb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fay-Li-dA3" secondAttribute="trailing" constant="161" id="pXw-3Y-re6"/>
+                            <constraint firstItem="fay-Li-dA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="164" id="qA3-kt-5OU"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ulB-Sd-kSL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="CameraButton" destination="lq4-CQ-bi7" id="9cL-Iw-mzG"/>
+                        <outlet property="bottomTextField" destination="pS3-SI-m8W" id="n4y-F7-Qjd"/>
+                        <outlet property="imagePickerView" destination="Ych-Pg-yAp" id="Wi5-J4-5vo"/>
+                        <outlet property="topTextField" destination="v0q-YH-YXE" id="8rf-Pd-WrB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="64" height="48"/>
+    </resources>
 </document>
