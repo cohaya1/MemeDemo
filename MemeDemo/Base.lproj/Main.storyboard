@@ -11,7 +11,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -47,21 +47,26 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-Pg-yAp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-Pg-yAp">
                                 <rect key="frame" x="0.0" y="84" width="414" height="724"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <viewLayoutGuide key="safeArea" id="0WB-KN-8ee"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-Lw-ElT" userLabel="topTextField">
-                                <rect key="frame" x="191" y="93" width="32" height="34"/>
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-Lw-ElT" userLabel="topTextField">
+                                <rect key="frame" x="0.0" y="93" width="414" height="40"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YZk-tY-j88"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-KW-3dN" userLabel="bottomTextField">
-                                <rect key="frame" x="191" y="93.5" width="32" height="34"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-KW-3dN" userLabel="bottomTextField">
+                                <rect key="frame" x="0.0" y="775" width="414" height="13"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Q6W-bo-cqx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -70,23 +75,31 @@
                         <constraints>
                             <constraint firstItem="yaf-KW-3dN" firstAttribute="centerX" secondItem="2lm-SK-Egf" secondAttribute="centerX" id="09A-Nr-fp0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2lm-SK-Egf" secondAttribute="bottom" constant="10" id="558-E7-Q7Q"/>
+                            <constraint firstItem="yaf-KW-3dN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9MI-bm-M60"/>
                             <constraint firstItem="OQb-ZD-KdR" firstAttribute="leading" secondItem="2lm-SK-Egf" secondAttribute="leading" id="AKG-w3-m7F"/>
                             <constraint firstItem="2lm-SK-Egf" firstAttribute="top" secondItem="Ych-Pg-yAp" secondAttribute="bottom" id="ATE-4W-5Rb"/>
                             <constraint firstItem="OQb-ZD-KdR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Apm-Yv-uY3"/>
                             <constraint firstItem="OQb-ZD-KdR" firstAttribute="trailing" secondItem="Ych-Pg-yAp" secondAttribute="trailing" id="AuR-hl-nKd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ych-Pg-yAp" secondAttribute="bottom" constant="54" id="BFU-2c-AAL"/>
                             <constraint firstItem="OQb-ZD-KdR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BNl-ut-9A3"/>
-                            <constraint firstItem="yaf-KW-3dN" firstAttribute="top" secondItem="YXE-Lw-ElT" secondAttribute="bottom" constant="-33.5" id="DOJ-y3-Tyc"/>
                             <constraint firstItem="2lm-SK-Egf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HRG-yC-LIE"/>
                             <constraint firstItem="OQb-ZD-KdR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HUe-nz-kVh"/>
                             <constraint firstItem="YXE-Lw-ElT" firstAttribute="trailing" secondItem="yaf-KW-3dN" secondAttribute="trailing" id="Ia2-fW-aem"/>
+                            <constraint firstItem="yaf-KW-3dN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JL7-vc-oaP"/>
                             <constraint firstItem="Ych-Pg-yAp" firstAttribute="leading" secondItem="OQb-ZD-KdR" secondAttribute="leading" id="Jvq-A5-5XG"/>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="top" secondItem="yaf-KW-3dN" secondAttribute="bottom" constant="20" id="P0u-HX-13u"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Qip-6y-fxG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2lm-SK-Egf" secondAttribute="bottom" constant="10" id="Rwe-9a-4Zl"/>
                             <constraint firstItem="2lm-SK-Egf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TKO-yb-oZJ"/>
+                            <constraint firstItem="Ych-Pg-yAp" firstAttribute="top" secondItem="OQb-ZD-KdR" secondAttribute="bottom" constant="-4" id="bdZ-92-pSq"/>
                             <constraint firstItem="YXE-Lw-ElT" firstAttribute="leading" secondItem="yaf-KW-3dN" secondAttribute="leading" id="cVP-9O-M98"/>
+                            <constraint firstItem="YXE-Lw-ElT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="49" id="cnX-e2-8g1"/>
+                            <constraint firstItem="2lm-SK-Egf" firstAttribute="top" secondItem="Ych-Pg-yAp" secondAttribute="bottom" id="fSc-JL-7hd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OQb-ZD-KdR" secondAttribute="trailing" id="iaH-mk-9Qv"/>
+                            <constraint firstItem="yaf-KW-3dN" firstAttribute="top" secondItem="YXE-Lw-ElT" secondAttribute="bottom" constant="642" id="iaL-WL-hAm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yaf-KW-3dN" secondAttribute="trailing" id="nUs-7t-SFd"/>
+                            <constraint firstItem="yaf-KW-3dN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qC6-Vs-hfH"/>
                             <constraint firstItem="Ych-Pg-yAp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="ucR-Og-wMg"/>
-                            <constraint firstItem="YXE-Lw-ElT" firstAttribute="top" secondItem="OQb-ZD-KdR" secondAttribute="bottom" constant="5" id="ur9-pu-zeh"/>
                             <constraint firstItem="OQb-ZD-KdR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xxG-bZ-MQp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -103,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="78"/>
+            <point key="canvasLocation" x="-181.15942028985509" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>
