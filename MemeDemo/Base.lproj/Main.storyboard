@@ -52,7 +52,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </imageView>
-                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-Lw-ElT" userLabel="topTextField">
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-Lw-ElT" userLabel="topTextField">
                                 <rect key="frame" x="0.0" y="93" width="414" height="40"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -61,7 +61,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-KW-3dN" userLabel="bottomTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-KW-3dN" userLabel="bottomTextField">
                                 <rect key="frame" x="0.0" y="775" width="414" height="13"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -105,8 +105,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="AlbumButton" destination="ikg-xD-vfE" id="7zy-HW-EGf"/>
                         <outlet property="BottomToolbar" destination="2lm-SK-Egf" id="T2N-yR-ZER"/>
-                        <outlet property="CameraButton" destination="lq4-CQ-bi7" id="9cL-Iw-mzG"/>
+                        <outlet property="CameraButton" destination="lq4-CQ-bi7" id="kAY-Jh-aKl"/>
+                        <outlet property="Cancelbutton" destination="Igm-dv-7Dc" id="hE5-h3-lFa"/>
                         <outlet property="TopToolbar" destination="OQb-ZD-KdR" id="BlI-sn-MVm"/>
                         <outlet property="bottomTextField" destination="yaf-KW-3dN" id="mMz-qx-pak"/>
                         <outlet property="imagePickerView" destination="Ych-Pg-yAp" id="Wi5-J4-5vo"/>

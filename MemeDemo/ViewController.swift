@@ -12,8 +12,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     weak var delegate: (UIImagePickerControllerDelegate & UINavigationControllerDelegate)?
     
     
+    
+    @IBOutlet weak var AlbumButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     
+    @IBOutlet weak var Cancelbutton: UIBarButtonItem!
     @IBOutlet weak var share: UIBarButtonItem!
     @IBOutlet weak var TopToolbar: UIToolbar!
     
@@ -46,6 +49,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     ]
     override func viewWillAppear(_ animated: Bool) {
         CameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+     //   subscribeToKeyboardNotifications()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeFromKeyBoardNotifications()
     }
 
     @IBAction func pickAnImage(_ sender: Any) {
@@ -74,22 +81,25 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
       func subscribeToKeyboardNotifications() {
        NotificationCenter.default.addObserver(
        self,
-       selector: #selector(self.keyboardWillShow(notification:)),
+       selector: #selector(self.keyboardWillShow(_:)),
        name: UIResponder.keyboardDidShowNotification, object: nil)
         
        }
-       
-       @objc func keyboardWillShow(notification: Notification) {
-           if let text = selectedTextField {
-               if text == bottomTextField {
-                   self.view.frame.origin.y = -getKeyboardHeight(notification: notification as NSNotification)
-               }
-           }
-       }
-       
-       func keyboardWillHide(notification: NSNotification) {
-           self.view.frame.origin.y = 0
-       }
+    
+    @objc func keyboardWillShow(_ notification:Notification) {
+        if bottomTextField.isEditing, view.frame.origin.y == 0 {
+            view.frame.origin.y -= getKeyboardHeight(notification: notification as NSNotification)
+        }
+    }
+    
+  
+          @objc func keyboardWillHide(_ notification:Notification) {
+            if selectedTextField != nil {
+               if  bottomTextField.isEditing, view.frame.origin.y != 0 {
+                   view.frame.origin.y = 0
+              }
+          }
+    }
        func textFieldDidEndEditing(_ textField: UITextField) {
            selectedTextField = nil
            if textField == topTextField && textField.text! == "" {
@@ -161,16 +171,16 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     func hideControls() {
         for view in self.view.subviews as [UIView] {
-            if let button = view as? UIButton {
-                button.isHidden = true
+            if let toolbar = view as? UIToolbar {
+                toolbar.isHidden = true
             }
         }
     }
     
     func showControls() {
         for view in self.view.subviews as [UIView] {
-            if let button = view as? UIButton {
-                button.isHidden = false
+            if let toolbar = view as? UIToolbar {
+                toolbar.isHidden = false
             }
         }
     }
@@ -179,3 +189,4 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
 }
+
