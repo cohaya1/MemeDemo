@@ -79,19 +79,25 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
        }
        
       func subscribeToKeyboardNotifications() {
-       NotificationCenter.default.addObserver(
-       self,
-       selector: #selector(self.keyboardWillShow(_:)),
-       name: UIResponder.keyboardDidShowNotification, object: nil)
-        
-       }
+        // keyboardWillShow
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.keyboardWillShow(_:)),
+        name: UIResponder.keyboardWillShowNotification, object: nil)
+        // keyboardWillHide
+        NotificationCenter.default.addObserver(
+           self,
+           selector: #selector(self.keyboardWillHide(_:)),
+           name: UIResponder.keyboardWillHideNotification, object: nil)
+      }
     
     @objc func keyboardWillShow(_ notification:Notification) {
-        if bottomTextField.isEditing, view.frame.origin.y == 0 {
-            view.frame.origin.y -= getKeyboardHeight(notification: notification as NSNotification)
+        if let text = selectedTextField {
+                   if text == bottomTextField {
+                       self.view.frame.origin.y = -getKeyboardHeight(notification: notification as NSNotification)
         }
     }
-    
+    }
   
           @objc func keyboardWillHide(_ notification:Notification) {
             if selectedTextField != nil {
@@ -111,7 +117,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
        }
 
        func unsubscribeFromKeyBoardNotifications() {
-           NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+         // keyboardWillShow
+         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+         // keyboardWillHide
+         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
        }
    @IBAction func pickAnImageFromCamera(_ sender: Any) {
 
