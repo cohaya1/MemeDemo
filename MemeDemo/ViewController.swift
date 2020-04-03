@@ -185,6 +185,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             }
         }
     }
+    @IBAction func unwindTOHome ( segue:UIStoryboardSegue) {
+           dismiss(animated: true, completion: nil)
+       }
     
     func showControls() {
         for view in self.view.subviews as [UIView] {
