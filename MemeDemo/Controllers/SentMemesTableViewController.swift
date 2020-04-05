@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SentMemesTableViewController: UITableViewController,UIViewControllerTransitioningDelegate {
+class SentMemesTableViewController: UITableViewController {
 
     @IBOutlet var addmeme : UIBarButtonItem!
     
@@ -53,7 +53,7 @@ class SentMemesTableViewController: UITableViewController,UIViewControllerTransi
         
                 // Configure the cell...
         let meme = self.memes[indexPath.row]
-        cell.TopandBottomTextLabel.text = memes[indexPath.row].bottomText
+        cell.TopandBottomTextLabel.text =  "\(meme.topText) ... \(meme.bottomText)"
        
         cell.thumbnailImageView.image = meme.memedImage
         

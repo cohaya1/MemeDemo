@@ -49,6 +49,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         NSAttributedString.Key.strokeWidth:-3
     ]
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.tabBarController?.tabBar.isHidden = true
         CameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
@@ -164,10 +166,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                
                if success {
                    self.save(memedImage: memeToShare)
+                self.dismiss(animated: true, completion: nil)
                }
            }
            present(activity, animated: true, completion:nil)
        }
+    
     func generateMemedImage() -> UIImage {
         
         hideControls()

@@ -30,7 +30,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="133" height="116"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bPu-V6-iMK">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bPu-V6-iMK">
                                             <rect key="frame" x="0.0" y="0.0" width="133" height="116"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="133" id="AcP-DY-YsR"/>
@@ -69,12 +69,12 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQb-ZD-KdR" userLabel="Top toolbar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Album" image="square.and.arrow.up" catalog="system" id="wGw-Hn-x0N" userLabel="share">
                                         <connections>
@@ -91,8 +91,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-SK-Egf" userLabel="Bottom toolbar">
-                                <rect key="frame" x="0.0" y="808" width="414" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-SK-Egf" userLabel="Bottom toolbar">
+                                <rect key="frame" x="0.0" y="842" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Album" id="ikg-xD-vfE">
                                         <connections>
@@ -108,13 +108,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-Pg-yAp">
-                                <rect key="frame" x="0.0" y="84" width="414" height="724"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-Pg-yAp">
+                                <rect key="frame" x="0.0" y="40" width="414" height="802"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </imageView>
-                            <textField clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-Lw-ElT" userLabel="topTextField">
-                                <rect key="frame" x="0.0" y="93" width="414" height="40"/>
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXE-Lw-ElT" userLabel="topTextField">
+                                <rect key="frame" x="0.0" y="49" width="414" height="101"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="YZk-tY-j88"/>
@@ -122,8 +122,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-KW-3dN" userLabel="bottomTextField">
-                                <rect key="frame" x="0.0" y="775" width="414" height="13"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-KW-3dN" userLabel="bottomTextField">
+                                <rect key="frame" x="0.0" y="792" width="414" height="30"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Q6W-bo-cqx"/>
@@ -198,7 +198,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMW-EE-JpI">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMW-EE-JpI">
                                             <rect key="frame" x="5" y="0.0" width="141" height="152"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="141" id="Ees-RU-BiT"/>
@@ -239,7 +239,7 @@
                     <navigationItem key="navigationItem" title="SentMemes" id="Ify-Vs-5k1">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="KwM-LE-lLc">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="ShowEditScreen" id="Rcu-My-kD3"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="ShowEditScreen" id="Rcu-My-kD3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
