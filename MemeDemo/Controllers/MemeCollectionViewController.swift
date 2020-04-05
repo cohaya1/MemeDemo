@@ -22,9 +22,9 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
-        collectionView?.reloadData()    // removed self
-        navigationItem.title = "Sent Memes"     // removed self
-        collectionView?.backgroundColor = UIColor.white      // removed self
+        collectionView?.reloadData()
+        navigationItem.title = "Sent Memes Collection View"
+        collectionView?.backgroundColor = UIColor.lightGray
     }
     override func viewDidAppear(_ animated: Bool) {
            collectionView!.reloadData()
@@ -35,7 +35,7 @@ class MemeCollectionViewController: UICollectionViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-    layoutCells()
+    FlowlayoutCells()
         // Register cell classes
     //    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectCell")
 
@@ -50,11 +50,12 @@ class MemeCollectionViewController: UICollectionViewController {
     struct Constants {
         static let CellVerticalSpacing: CGFloat = 2
     }
-    func layoutCells() {
-           var cellWidth: CGFloat
+    func FlowlayoutCells() {
+        // set device flow layout based on the horizontal orientation
+           var FlowlayoutcellWidth: CGFloat
            var numWide: CGFloat
            
-           //sets the number of cells to display horizontally in each row based on the device's orientation
+           
         switch UIDevice.current.orientation {
         case .portrait:
                numWide = 3
@@ -67,16 +68,16 @@ class MemeCollectionViewController: UICollectionViewController {
            default:
                numWide = 4
            }
-        cellWidth = collectionView!.frame.width / numWide
+        FlowlayoutcellWidth = collectionView!.frame.width / numWide
         
         //updates the cell width to account for the desired cell spacing (a predetermined constant, defined in the Constants struct), then updates the itemSize accordingly
-        cellWidth -= Constants.CellVerticalSpacing
-        flowLayout.itemSize.width = cellWidth
-        flowLayout.itemSize.height = cellWidth
+        FlowlayoutcellWidth -= Constants.CellVerticalSpacing
+        flowLayout.itemSize.width = FlowlayoutcellWidth
+        flowLayout.itemSize.height = FlowlayoutcellWidth
         flowLayout.minimumInteritemSpacing = Constants.CellVerticalSpacing
         
         //calculates the actual vertical spacing between cells, accounting for the additional vertical space that was subtracted from the cell width (e.g. if there are 3 cells, there are only 2 vertical spaces, not 3); then by setting the line spacing to be equal to this "actual" value, the vertical and horizontal distances between cells should be exact (or as close to exact as possible)
-        let actualCellVerticalSpacing: CGFloat = (collectionView!.frame.width - (numWide * cellWidth))/(numWide - 1)
+        let actualCellVerticalSpacing: CGFloat = (collectionView!.frame.width - (numWide * FlowlayoutcellWidth))/(numWide - 1)
         flowLayout.minimumLineSpacing = actualCellVerticalSpacing
         
         //causes the collection view to invalidate its current layout and relay out the collection view using the new settings in the flow layout (without this call, the cells don't properly resize upon rotation)

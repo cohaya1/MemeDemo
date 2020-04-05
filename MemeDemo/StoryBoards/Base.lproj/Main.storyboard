@@ -165,7 +165,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lQX-ZM-DUH"/>
                     <connections>
                         <outlet property="AlbumButton" destination="ikg-xD-vfE" id="7zy-HW-EGf"/>
                         <outlet property="BottomToolbar" destination="2lm-SK-Egf" id="T2N-yR-ZER"/>
