@@ -32,6 +32,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         textLoad()
+        
     }
     func textLoad (){
          topTextField.defaultTextAttributes = memeTextAttributes
@@ -146,11 +147,14 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     @IBAction func Sharebutton(_ sender: Any) {
         shareMeme()
+       
     }
     func save(memedImage: UIImage) {
            let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imagePickerView.image, memedImage: memedImage)
-           self.meme = meme
-           (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+          let object = UIApplication.shared.delegate
+           let appDelegate = object as! AppDelegate
+           appDelegate.memes.append(meme)
+       
        }
        
        func shareMeme() {
@@ -188,6 +192,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     @IBAction func unwindTOHome ( segue:UIStoryboardSegue) {
            dismiss(animated: true, completion: nil)
        }
+    @IBAction func cancelMainScreen(sender: AnyObject) {
+        imagePickerView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        dismiss(animated: true, completion: {}) // removed self
+    }
     
     func showControls() {
         for view in self.view.subviews as [UIView] {

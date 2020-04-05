@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SentMemesTableViewController: UITableViewController {
+class SentMemesTableViewController: UITableViewController,UIViewControllerTransitioningDelegate {
 
+    @IBOutlet var addmeme : UIBarButtonItem!
+    
+    
  var memes: [Meme]! {
      let object = UIApplication.shared.delegate
      let appDelegate = object as! AppDelegate
@@ -26,7 +29,12 @@ class SentMemesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      // removed self
+        
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,10 +52,10 @@ class SentMemesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)as! SentMemeTableViewCell
         
                 // Configure the cell...
-        
-         cell.TopTextLabel.text = memes[indexPath.row].topText
-        cell.BottomTextLabel.text = memes[indexPath.row].bottomText
-        cell.thumbnailImageView.image = UIImage(named: memes[indexPath.row].image!)
+        let meme = self.memes[indexPath.row]
+        cell.TopandBottomTextLabel.text = memes[indexPath.row].bottomText
+       
+        cell.thumbnailImageView.image = meme.memedImage
         
 
         // Configure the cell...
@@ -55,7 +63,13 @@ class SentMemesTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowEditScreen" {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let destinationController = segue.destination as! ViewController
+            destinationController.meme = memes[indexPath.row]
+            
+        }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -101,4 +115,6 @@ class SentMemesTableViewController: UITableViewController {
     }
     */
 
+}
+}
 }

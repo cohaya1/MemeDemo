@@ -11,8 +11,8 @@ import UIKit
 class SentMemeTableViewCell: UITableViewCell {
 
     
-        @IBOutlet weak var TopTextLabel: UILabel!
-        @IBOutlet weak var BottomTextLabel: UILabel!
+        @IBOutlet weak var TopandBottomTextLabel: UILabel!
+        
         
         @IBOutlet weak var thumbnailImageView: UIImageView!
         override func awakeFromNib() {
