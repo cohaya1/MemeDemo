@@ -31,23 +31,24 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        textLoad()
-        
+        textLoad(tf: topTextField, text: "TOP")
+         textLoad(tf: bottomTextField, text: "BOTTOM")
     }
-    func textLoad (){
-         topTextField.defaultTextAttributes = memeTextAttributes
-            topTextField.textAlignment = NSTextAlignment.center
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-            bottomTextField.textAlignment = NSTextAlignment.center
-            topTextField.delegate = self
-            bottomTextField.delegate = self
+    func textLoad (tf: UITextField, text: String){
+         tf.defaultTextAttributes = [
+             NSAttributedString.Key.foregroundColor : UIColor.white,
+             NSAttributedString.Key.strokeColor : UIColor.black,
+             NSAttributedString.Key.font : UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+             NSAttributedString.Key.strokeWidth : -4.0,
+         ]
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+         tf.textColor = UIColor.white
+         tf.tintColor = UIColor.white
+         tf.textAlignment = .center
+         tf.text = text
     }
-   let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor:UIColor.white,
-       NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:-3
-    ]
+   
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -112,10 +113,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
        func textFieldDidEndEditing(_ textField: UITextField) {
            selectedTextField = nil
            if textField == topTextField && textField.text! == "" {
-               textField.text = "TOP TEXT"
+               textField.text = "TOP"
            }
            if textField == bottomTextField && textField.text! == "" {
-               textField.text = "BOTTOM TEXT"
+               textField.text = "BOTTOM"
            }
        }
 
@@ -152,12 +153,16 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
        
     }
     func save(memedImage: UIImage) {
-           let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imagePickerView.image, memedImage: memedImage)
-          let object = UIApplication.shared.delegate
-           let appDelegate = object as! AppDelegate
-           appDelegate.memes.append(meme)
-       
-       }
+           if imagePickerView.image != nil && topTextField.text != nil && bottomTextField.text != nil
+               {
+                   let top = self.topTextField.text!
+                let bottom = self.bottomTextField.text!
+                   let image = self.imagePickerView.image!
+                   
+                let meme = Meme(topText: top, bottomText: bottom, image: image, memedImage: memedImage)
+                (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+               }
+           }
        
        func shareMeme() {
            let memeToShare = generateMemedImage()

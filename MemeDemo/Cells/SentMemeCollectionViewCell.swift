@@ -15,6 +15,6 @@ class SentMemeCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+   
    
 }

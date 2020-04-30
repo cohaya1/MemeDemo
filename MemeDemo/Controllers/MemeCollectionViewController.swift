@@ -117,6 +117,16 @@ return self.memes.count
     
         return cell
     }
+    
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "ShowDetail" {
+                let memeDetailVC = segue.destination as! MemeDetailsViewController
+                let meme = sender as! Meme
+                memeDetailVC.meme = meme
+            }
+        }
+ 
+    
 
     // MARK: UICollectionViewDelegate
 
@@ -127,13 +137,16 @@ return self.memes.count
     }
     */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
+    
+     //Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
+        detailViewController.meme = self.memes[indexPath.row]
+        self.navigationController!.pushViewController(detailViewController, animated: true)
         return true
     }
-    */
-
+    
+}
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
@@ -149,4 +162,4 @@ return self.memes.count
     }
     */
 
-}
+

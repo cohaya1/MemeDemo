@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SentMemesTableViewController: UITableViewController {
+class SentMemesTableViewController: UITableViewController,UIViewControllerTransitioningDelegate {
 
     @IBOutlet var addmeme : UIBarButtonItem!
     
@@ -22,7 +22,9 @@ class SentMemesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.delegate = self
+         self.tableView.dataSource = self
+        tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -63,12 +65,19 @@ class SentMemesTableViewController: UITableViewController {
         return cell
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowEditScreen" {
         if let indexPath = tableView.indexPathForSelectedRow {
             let destinationController = segue.destination as! ViewController
             destinationController.meme = memes[indexPath.row]
             
+        }
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
+                   detailViewController.meme = self.memes[indexPath.row]
+                   self.navigationController!.pushViewController(detailViewController, animated: true)
+                   
         }
     /*
     // Override to support conditional editing of the table view.
@@ -78,8 +87,8 @@ class SentMemesTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
+        
+   /*
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -88,8 +97,8 @@ class SentMemesTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
+    
+*/
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
