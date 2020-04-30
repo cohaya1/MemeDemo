@@ -64,6 +64,12 @@ class SentMemesTableViewController: UITableViewController,UIViewControllerTransi
 
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+               let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
+                      detailViewController.meme = self.memes[indexPath.row]
+                      self.navigationController!.pushViewController(detailViewController, animated: true)
+                      
+           }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,12 +79,8 @@ class SentMemesTableViewController: UITableViewController,UIViewControllerTransi
             destinationController.meme = memes[indexPath.row]
             
         }
-       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
-                   detailViewController.meme = self.memes[indexPath.row]
-                   self.navigationController!.pushViewController(detailViewController, animated: true)
-                   
-        }
+        
+       
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
